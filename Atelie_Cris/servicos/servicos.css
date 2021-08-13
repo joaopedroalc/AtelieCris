@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+  }
+
+  img,div,iframe{
+    max-width: 100vw;
+}
+
+body{
+    background-color: #FFB6C1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration:none;
+}
+
+.estrutura{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "header header"
+    "main main"
+    "footer footer";
+}
+
+.header{
+    grid-area: header;
+    background-color:#fff;
+    padding:20px;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items:center;
+}
+.logo{
+    margin-left: 2rem;
+}
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu a{
+    display: block;
+    padding:10px;
+    color: #000;
+    font-size: 1.125em;
+    background: #FFB6C1;
+    border-radius:5px;
+    transition: all 0.5s;
+}
+
+.menu a:hover{
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    animation: pulse;
+    animation-duration: 2s;
+}
+
+.menu li + li{
+    margin-left: 10px;
+}
+
+.main{
+    grid-area: main;
+}
+#slider {
+    width: 100vw;
+    height: 65vw;
+    position: relative;
+    margin: 0 auto;
+}
+
+#slider img{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 800ms;
+}
+
+#slider img.selected { 
+    opacity: 1;
+}
+
+.s1_container{
+    width: 100vw;
+    height: auto;
+    background-color:#FFDEAD;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.s1_div{
+    width: 80%;
+    height: 80vh;
+    background-color:#FA8072;
+    overflow: auto;
+    margin: 3rem 0;
+    border-radius: 10px;
+}
+.s1_div h1{
+    text-align: center;
+    padding: 2rem 0;
+    font-size:3rem;
+}
+.s1_div p{
+    padding: 1rem 3rem 2rem 3rem;
+    font-size: 1.5rem;
+}
+
+.wpp, .email{
+    width: 35px;
+    height:35px;
+    margin-top:1.5rem;
+}
+.insta{
+    width: 40px;
+    height:40px;
+    margin-top:1.5rem;
+    padding: 0;
+}
+.wpp:hover, .email:hover, .insta{
+    animation:swing;
+    animation-duration: 1s;
+}
+.email{
+    margin:0 1rem;
+}
+.footer{
+    grid-area: footer;
+    text-align: center;
+    height:5rem;
+    background-color:#FFB6C1;
+    width: 100vw;
+}
+
+@media screen and (max-width:600px){
+    .logo{
+        width: 20%;
+        height: 20%;
+        margin-top:1rem;
+        margin-left: 1rem;
+    }
+    nav {
+        display: none;
+    }
+    .one,
+    .two,
+    .three {
+        background-color: #FFB6C1;
+        height: 5px;
+        width: 100%;
+        margin: 6px auto;
+        transition-duration: 0.3s;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 10px;
+        margin-right: 20px;
+    }
+
+    /* fullscreen */
+    .menu-section.on {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(28,28,28,0.98);
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-section.on nav {
+        display: block;
+    }
+
+    .menu-section.on .menu-toggle {
+        position: absolute;
+        right: 25px;
+        top: 15px;
+    }
+
+    .menu-section.on .menu-toggle .one {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-section.on .menu-toggle .two {
+        opacity: 0;
+    }
+
+    .menu-section.on .menu-toggle .three {
+        transform: rotate(-45deg) translate(8px, -9px);
+    }
+
+    .menu-section.on nav ul {
+        text-align: center;
+        display: block;
+    }
+    .menu-section.on nav ul li {
+        width: 20rem;
+    }
+    
+    .menu-section.on nav ul li:first-child{
+        margin-left: 0.65rem;
+    }
+
+    .menu-section.on nav ul a{
+        transition-duration: 0.5s;
+        font-size: 3rem;
+        line-height: 4rem;
+        background-color: #FFB6C1;
+        color: #000000;
+        display: block;
+        margin-top: 1rem;
+        }
+    }
+
+    @media screen and (max-width:480px){
+        .logo{
+            width: 30%;
+            height: 30%;
+            margin-top:1rem;
+            margin-left: 1rem;
+        }
+    }
